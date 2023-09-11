@@ -24,7 +24,7 @@ const SendPayment = () => {
     return <Payment name={name} />;
   }
   return (
-    <section className="mx-auto max-w-screen-xl mt-14 mr-28">
+    <section className="mx-auto max-w-screen-lg mt-14">
       <p className="text-3xl">Send payment to</p>
       <div className="flex items-center gap-4 mt-6">
         <div className="relative flex items-center">

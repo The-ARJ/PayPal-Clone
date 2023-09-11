@@ -20,14 +20,14 @@ const Payment = ({ name }) => {
   };
 
   if (isLoading) {
-    return <p className=" text-center m-10">Payment Processing...</p>;
+    return <p className=" text-center m-10 text-xl">Processing Payment...</p>;
   }
 
   if (showNextComponent) {
     return <PaymentSuccess name={name} amount={amount} />;
   }
   return (
-    <section className="mx-auto max-w-screen-md mt-14 ">
+    <section className="mx-auto max-w-screen-md  mt-14 ">
       <div className=" border-2  pb-10 rounded-md ">
         <div className=" flex items-center justify-center m-10 gap-4">
           <UserIcon className=" h-10 text-blue-900" />
@@ -64,7 +64,7 @@ const Payment = ({ name }) => {
             Next
           </button>
         </div>
-        <div className="m-6">
+        <div className="mt-6 mb-60">
           <button
             className={`items-center  px-32 py-3 font-semibold text-[#0917b0] 
             }`}
