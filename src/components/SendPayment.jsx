@@ -1,16 +1,39 @@
 "use client";
-import Link from "next/link";
-import React from "react";
+import React, { Suspense, useState } from "react";
+import Payment from "./Payment";
+
 const SendPayment = () => {
+  const [name, setName] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const [showNextComponent, setShowNextComponent] = useState(false);
+
+  const handleNextClick = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      setShowNextComponent(true);
+    }, 2000);
+  };
+
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
+  if (showNextComponent) {
+    return <Payment name={name} />;
+  }
   return (
-    <section className="mx-auto max-w-screen-xl mt-14 mr-28  ">
+    <section className="mx-auto max-w-screen-xl mt-14 mr-28">
       <p className="text-3xl">Send payment to</p>
-      <div className="flex items-center gap-4 mt-6 ">
+      <div className="flex items-center gap-4 mt-6">
         <div className="relative flex items-center">
           <input
             type="text"
             placeholder="Name, @username,email or mobile"
-            className=" rounded-full text-base border border-black placeholder:text-gray-800  px-10 py-2 pr-10 focus:outline-none w-[500px] h-[50px]"
+            value={name}
+            onChange={handleNameChange}
+            className="rounded-full text-base border border-black placeholder:text-gray-800 px-10 py-2 pr-10 focus:outline-none w-[500px] h-[50px]"
           />
           <button
             type="submit"
@@ -32,13 +55,16 @@ const SendPayment = () => {
           </button>
         </div>
       </div>
-      <div className=" mt-10 ">
-        <Link
-          href="#"
-          className="items-center rounded-full bg-[#0917b0] text-white shadow-xl border  px-6 py-3 font-semibold "
+      <div className="mt-6">
+        <button
+          onClick={handleNextClick}
+          disabled={!name}
+          className={`items-center rounded-full  shadow-xl border px-6 py-3 font-semibold ${
+            name ? "bg-[#0917b0] text-white" : "bg-gray-100 text-gray-400"
+          }`}
         >
-          Next
-        </Link>
+          {isLoading ? "Processing..." : "Next"}
+        </button>
       </div>
     </section>
   );
