@@ -24,7 +24,7 @@ const SendPayment = () => {
     return <Payment name={name} />;
   }
   return (
-    <section className="mx-auto max-w-screen-lg mt-14">
+    <section className="mx-auto max-w-screen-lg mt-14 md:px-0 px-2">
       <p className="text-3xl">Send payment to</p>
       <div className="flex items-center gap-4 mt-6">
         <div className="relative flex items-center">
@@ -33,7 +33,7 @@ const SendPayment = () => {
             placeholder="Name, @username,email or mobile"
             value={name}
             onChange={handleNameChange}
-            className="rounded-full text-base border border-black placeholder:text-gray-800 px-10 py-2 pr-10 focus:outline-none w-[500px] h-[50px]"
+            className="rounded-full text-base border border-black placeholder:text-gray-800 px-10 py-2 pr-10 focus:outline-none md:w-[500px] md:h-[50px]"
           />
           <button
             type="submit"
