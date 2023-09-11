@@ -1,6 +1,7 @@
 import { UserIcon } from "@heroicons/react/24/solid";
 import React, { useState } from "react";
 import PaymentSuccess from "./PaymentSuccess";
+import Link from "next/link";
 
 const Payment = ({ name }) => {
   const [amount, setAmount] = useState("");
@@ -65,12 +66,13 @@ const Payment = ({ name }) => {
           </button>
         </div>
         <div className="mt-6 mb-60">
-          <button
+          <Link
+            href="#"
             className={`items-center  px-32 py-3 font-semibold text-[#0917b0] 
             }`}
           >
             Cancel
-          </button>
+          </Link>
         </div>
       </div>
     </section>
