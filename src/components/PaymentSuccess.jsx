@@ -14,11 +14,9 @@ const PaymentSuccess = ({ name, amount }) => {
   }
   return (
     <div className=" flex flex-col gap-4 items-center justify-center m-20">
-      <Image
+      <img
         src="/assets/success.png"
         className=" h-24 w-24 "
-        width={400}
-        height={400}
         alt="paypal"
       />
       <p>
